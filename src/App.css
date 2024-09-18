@@ -1,0 +1,34 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: .5rem;
+  background: #111;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background: #222;
+  padding: 0 0 0 1rem;
+  border-radius: .5rem;
+}
+
+.todo-item p {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.todo-form .item-name {
+  height: 34px;
+  vertical-align: top;
+  display: inline-block;
+}
+.todo-form .item-button {
+  vertical-align: top;
+  height: 40px;
+  border-radius: 0 .5rem .5rem 0;
+  display: inline-block;
+}
