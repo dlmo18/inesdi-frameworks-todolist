@@ -7,11 +7,13 @@ function TodoList() {
       id: 1,
       text: "Comprar pan",
       completed: true,
+      isNew: false,
     },
     {
       id: 2,
       text: "Preparar almuerzos",
       completed: false,
+      isNew: false,
     },
   ]);
 
@@ -19,6 +21,7 @@ function TodoList() {
     id: Date.now(),
     text: "",
     completed: false,
+    isNew: true,
   });
 
   function addTask(item) {
@@ -49,11 +52,7 @@ function TodoList() {
     }
 
     setTasks(tempTasks);
-    setItem({
-      id: Date.now(),
-      text: "",
-      completed: false,
-    });
+    clearTask();
   }
 
   function deleteTask(id) {
@@ -65,6 +64,7 @@ function TodoList() {
       id: Date.now(),
       text: "",
       completed: false,
+      isNew: true,
     });
   }
 
@@ -73,6 +73,7 @@ function TodoList() {
       id: Date.now(),
       text: "",
       completed: false,
+      isNew: true,
     };
 
     tasks.forEach((task) => {
@@ -107,6 +108,7 @@ function TodoList() {
               id: item.id,
               text: e.target.value,
               completed: item.completed,
+              isNew: item.isNew,
             })
           }
         />
@@ -114,7 +116,12 @@ function TodoList() {
           className="item-button item-button-send"
           onClick={() => addTask(item)}
         >
-          <i className="fas fa-plus"></i> Agregar
+          {item.isNew ? (
+            <i className="fas fa-plus"></i>
+          ) : (
+            <i className="fas fa-edit"></i>
+          )}
+          {item.isNew ? "Agregar" : "Editar"}
         </button>
         <button
           title="Limpiar"
