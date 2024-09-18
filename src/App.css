@@ -47,3 +47,38 @@
   display: inline-block;
   padding: 0.25rem 0.5rem;
 }
+
+.login-input {
+  margin-bottom: .5rem;
+}
+
+.login-input input {
+  display: block;
+  border-radius: .25rem;
+  height: 35px;
+  width: 97%;
+  margin: auto;
+}
+
+.login-button {
+  display: block;
+  border-radius: .25rem;
+  height: 50px;
+  width: 100%;
+  margin: auto;
+}
+
+.login-message {
+  color:#fff;
+  padding: 1rem 0;
+  text-align: center;
+  display: none;
+}
+.login-message.error {
+  color: #f00;
+  display: block;
+}
+.login-message.info {
+  color: yellow;
+  display: block;
+}
