@@ -10,7 +10,15 @@ function App() {
   const [auth, setAuth] = useState(authCache);
   console.log('authCache',authCache,auth);
 
-  return <div className="App">{!auth ? <Login setAuth={setAuth} /> : <TodoList setAuth={setAuth} />}</div>;
+  return <div className="App">
+    {
+      !auth 
+      ? 
+      <Login setAuth={setAuth} />
+      : 
+      <TodoList setAuth={setAuth} />
+    }
+    </div>;
 }
 
 export default App;

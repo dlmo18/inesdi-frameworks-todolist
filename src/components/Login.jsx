@@ -55,7 +55,7 @@ function Login({setAuth}) {
             setAuth(data.token)
             localStorage.setItem('access_token', data.token)
           } else {
-            throw Error("Error: usuario no disponible");
+            throw Error("usuario no disponible");
           }
         }
         
