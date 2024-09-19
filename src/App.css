@@ -82,3 +82,20 @@
   color: yellow;
   display: block;
 }
+
+.button-logout {
+  position: absolute;
+  top: -1rem;
+  background: #fff;
+  color: #000;
+  border-radius: 100%;
+  right: -1rem;
+  padding: .5rem;
+}
+.button-logout:hover {
+  background-color: #888;
+}
+
+#root {
+  position: relative;
+}

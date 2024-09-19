@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login() {
+function Login({setAuth}) {
   const [msg, setMsg] = useState({
     text: "",
     status: "info"
@@ -33,14 +33,37 @@ function Login() {
             status: "info"
           })
           console.log(login);
-          // const requestBody = {email, password}
-          // const response = await axios.post('https://reqres.in/api/login', requestBody)
-          // localStorage.setItem('access_token', response.data.access_token)
+
+          const requestBody = {
+            "email": login.email, 
+            "password": login.password
+          }
+
+          const options = {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody),
+          };
+          
+          const response = await fetch('https://reqres.in/api/login',options);
+          if (response.ok) {
+            const data = await response.json();
+            //console.log('data',data);
+            setAuth(data.token)
+            localStorage.setItem('access_token', data.token)
+          } else {
+            throw Error("Error: usuario no disponible");
+          }
         }
         
     } catch (error) {
-        console.log('Error', error);
-       
+        setMsg({
+          text: ""+error,
+          status: "error"
+        })      
     }
   }
 

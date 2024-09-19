@@ -1,16 +1,16 @@
 import { useState } from "react";
 import TodoItem from "./TodoItem";
 
-function TodoList() {
+function TodoList({setAuth}) {
   const [tasks, setTasks] = useState([
     {
-      id: 1,
+      id: Date.now()+'2',
       text: "Comprar pan",
       completed: true,
       isNew: false,
     },
     {
-      id: 2,
+      id: Date.now()+'1',
       text: "Preparar almuerzos",
       completed: false,
       isNew: false,
@@ -97,8 +97,17 @@ function TodoList() {
     );
   }
 
+  function logout() {
+    setAuth(false);
+    localStorage.removeItem('access_token')
+  }
+
   return (
     <>
+        <button title="Cerrar sesión"
+          className="button-logout"
+          onClick={() => logout()}
+        ><i className="fas fa-sign-out-alt"></i></button>
       <div className="todo-form">
         <input
           className="item-name"
@@ -143,6 +152,7 @@ function TodoList() {
           />
         ))}
       </div>
+      
     </>
   );
 }
