@@ -1,11 +1,9 @@
-import React from "react";
-
 function TodoItem({ task, editTask, deleteTask, toggleCompleted }) {
   function handleChange() {
     toggleCompleted(task.id);
   }
 
-  let className = "todo-item " + (task.completed ? "" : "active");
+  let className = "todo-item " + (task.completed ? "completed" : "in-progress");
 
   return (
     <div className={className}>

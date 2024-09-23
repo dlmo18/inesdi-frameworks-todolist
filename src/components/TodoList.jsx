@@ -29,11 +29,7 @@ function TodoList() {
       return;
     }
 
-    const newTask = {
-      id: item.id,
-      text: item.text,
-      completed: item.completed,
-    };
+    const newTask = { ...item };
 
     let tempTasks = [];
 
@@ -69,20 +65,20 @@ function TodoList() {
   }
 
   function editTask(id) {
-    let item = {
-      id: Date.now(),
-      text: "",
-      completed: false,
-      isNew: true,
-    };
+    const task = tasks.find((task) => task.id === id);
+    task.isNew = true;
+    task.completed = false;
 
-    tasks.forEach((task) => {
+    const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
-        item = task;
+        return task;
+      } else {
+        return task;
       }
     });
 
-    setItem(item);
+    setItem(task);
+    setTasks(updatedTasks);
   }
 
   function toggleCompleted(id) {

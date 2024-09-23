@@ -21,7 +21,10 @@
   text-align: left;
   color: #fff;
 }
-.todo-item.active p {
+.todo-item.in-progress p {
+  text-decoration: none;
+}
+.todo-item.completed p {
   color: #888;
   text-decoration: line-through;
 }
